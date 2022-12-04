@@ -13,7 +13,6 @@ jest.mock("axios", () => ({
       let url: URLSearchParams = new URLSearchParams(queryString);
       let s = url.get("s");
       let newSearchText: string = `${s}`;
-      console.log(newSearchText);
       if (newSearchText.length > 0) {
         resolve({ data: { Search: mockData } });
       } else {
