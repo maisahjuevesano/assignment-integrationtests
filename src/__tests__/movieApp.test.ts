@@ -102,6 +102,23 @@ describe("handleSubmit", () => {
     }
   });
 
+  test("should run displayNoResult because of error", async () => {
+    //Arrange
+    expect.assertions(1);
+    document.body.innerHTML = `<form id="searchForm">
+    <input type="text" id="searchText" value="" placeholder="Skriv titel här" />
+    <button type="submit" id="search">Sök</button>
+    </form>
+    <div id="movie-container"></div>`;
+    let spy = jest
+      .spyOn(movieAppFunctions, "displayNoResult")
+      .mockReturnValue();
+    //Act
+    await movieAppFunctions.handleSubmit();
+    //Assert
+    expect(spy).toHaveBeenCalled();
+  });
+
   test("Should create HTML", async () => {
     //arrange
 
