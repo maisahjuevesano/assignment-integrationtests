@@ -6,20 +6,6 @@ import { IMovie } from "../ts/models/Movie";
 import { getData } from "../ts/services/movieservice";
 import { mockData } from "../ts/services/__mocks__/movieservice";
 
-// jest.mock("./../ts/services/movieservice.ts");
-// jest.mock("axios", () => ({
-//   get: async () => {
-//     return new Promise((resolve) => {
-//       // let searhText: string = "hej";
-//       resolve({
-//         data: {
-//           Search: mockData,
-//         },
-//       });
-//     });
-//   },
-// }));
-
 jest.mock("axios", () => ({
   get: async (searchText: string) => {
     return new Promise((resolve, reject) => {
@@ -38,7 +24,6 @@ jest.mock("axios", () => ({
 }));
 
 describe("getData", () => {
-  //klar
   beforeEach(() => {
     jest.resetModules();
     jest.restoreAllMocks();
@@ -77,16 +62,4 @@ describe("getData", () => {
       expect(response.data).toBe("Ingenting finns här");
     }
   });
-
-  // test("should not get mock data", async () => {
-  //   //Arrange
-  //   let searchText: string = "";
-  //   //Act
-  //   try {
-  //     await getData(searchText);
-  //   } catch (data: any) {
-  //     //Assert
-  //     expect(data.data.length).toBe(0);
-  //   }
-  // });
 });

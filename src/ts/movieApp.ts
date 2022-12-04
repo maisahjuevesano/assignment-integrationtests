@@ -3,7 +3,6 @@ import { getData } from "./services/movieservice";
 
 let movies: IMovie[] = [];
 
-//1x
 export const init = () => {
   let form = document.getElementById("searchForm") as HTMLFormElement;
   form.addEventListener("submit", (e: SubmitEvent) => {

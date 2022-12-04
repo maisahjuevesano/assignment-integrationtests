@@ -32,7 +32,6 @@ describe("init", () => {
 });
 
 describe("handleSubmit", () => {
-  //"återställa" tidigare mocks mm. Nu ny mock på axios ist för movieservice
   beforeEach(() => {
     jest.resetModules();
     jest.restoreAllMocks();
@@ -101,8 +100,6 @@ describe("handleSubmit", () => {
       expect(spy).toBeCalledWith(container);
       expect(movieserviceFunction.getData).toHaveBeenCalledTimes(1);
     }
-
-    // }
   });
 
   test("Should create HTML", async () => {
